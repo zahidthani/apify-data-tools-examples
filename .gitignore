@@ -1,0 +1,20 @@
+# secrets
+.env
+.env.*
+*.token
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# node
+node_modules/
+package-lock.json
+
+# output written by the examples
+*.csv
+*.xlsx
+
+.DS_Store

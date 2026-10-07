@@ -1,0 +1,57 @@
+{
+  "name": "Google Trends Trending Now (Apify Actor via HTTP Request)",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "767ab36d-8bc0-490b-8e19-bc1f486bcac7",
+      "name": "When clicking 'Execute workflow'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/zahidthani~google-trends-trending-now/run-sync-get-dataset-items",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"countries\": [\n    \"US\"\n  ],\n  \"timeWindow\": \"24\",\n  \"sortBy\": \"volume\",\n  \"minSearchVolume\": 10000,\n  \"maxItemsPerCountry\": 20\n}",
+        "options": {
+          "timeout": 300000
+        }
+      },
+      "id": "4405473b-a45d-4893-9856-5fb2598a2ef6",
+      "name": "Apify: Google Trends Trending Now",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        260,
+        0
+      ],
+      "notes": "Create a 'Header Auth' credential: Name = Authorization, Value = Bearer <your Apify API token>. Each trend returned becomes one n8n item. Cost: $0.005 per run + $0.001 per trend.",
+      "notesInFlow": true
+    }
+  ],
+  "connections": {
+    "When clicking 'Execute workflow'": {
+      "main": [
+        [
+          {
+            "node": "Apify: Google Trends Trending Now",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

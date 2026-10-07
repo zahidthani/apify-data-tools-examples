@@ -1,0 +1,20 @@
+{
+  "name": "apify-data-tools-examples",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node.js examples for the Google Trends, App Reviews, Tech Stack and Trending Now Actors on Apify",
+  "type": "module",
+  "scripts": {
+    "google-trends": "node google-trends.js",
+    "app-reviews": "node app-reviews.js",
+    "tech-stack": "node tech-stack.js",
+    "trending-now": "node trending-now.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "apify-client": "^2.12.0"
+  },
+  "license": "MIT"
+}
